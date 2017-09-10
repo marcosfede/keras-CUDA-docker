@@ -19,7 +19,7 @@ ipython: build
 	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data --env KERAS_BACKEND=$(BACKEND) tf ipython
 
 notebook: build
-	$(DOCKER) run -it -v $(PWD):/src/workspace -v $(DATA):/data --net=host --env KERAS_BACKEND=$(BACKEND) tf
+	$(DOCKER) run -it -v $(PWD):/src -v $(DATA):/data --net=host --env KERAS_BACKEND=$(BACKEND) tf
 
 test: build
 	$(DOCKER) run -it -v $(SRC):/src -v $(DATA):/data --env KERAS_BACKEND=$(BACKEND) tf py.test $(TEST)
