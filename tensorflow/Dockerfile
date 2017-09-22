@@ -1,4 +1,6 @@
 FROM tensorflow/tensorflow:latest-devel-gpu-py3
+ARG PORT=8888
+ENV PORT=$PORT
 
 
 ENV NB_USER keras
@@ -19,4 +21,4 @@ WORKDIR /code
 
 EXPOSE 8888
 
-CMD jupyter notebook --port=8888 --ip=0.0.0.0
+CMD jupyter notebook --port=$PORT --ip=0.0.0.0
